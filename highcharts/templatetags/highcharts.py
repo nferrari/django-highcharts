@@ -1,5 +1,6 @@
 from django.conf import settings
 from django import template
+from django.utils.safestring import mark_safe
 
 register = template.Library()
 
@@ -26,4 +27,4 @@ def highcharts_javascript():
         javascript += '<script src="{url}"></script>'.format(url=HIGHCHARTS['jquery_url'])
     if HIGHCHARTS['highcharts_url']:
         javascript += '<script src="{url}"></script>'.format(url=HIGHCHARTS['highcharts_url'])
-    return javascript
+    return mark_safe(javascript)
